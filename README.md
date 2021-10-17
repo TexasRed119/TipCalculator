@@ -1,9 +1,9 @@
 "# TipCalculator" 
  ## *Tomas Coghlan*
 
-**TipCalculator** computes the tip and total amount for a bill. The app uses the base amount and tip percentage to calculate the amount owed, and it also describes the quality of service based on the tip.
+**TipCalculator** computes the tip and total amount for a bill. The app uses the base amount and tip percentage to calculate the amount owed, describes the quality of service based on the tip, and has the ability to round the tip up for easy payment.
 
-Time spent: **5** hours spent in total
+Time spent: **7** hours spent in total
 
 ## Functionality
 
@@ -24,13 +24,13 @@ The following **extensions** are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/aVG391a.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-No major snags when it came to building the app. The hardest part was integrating GitHub.
+No major snags when it came to building the app. The hardest part was integrating GitHub and making the GIF.
 
 ## License
 
