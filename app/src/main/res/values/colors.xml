@@ -8,7 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="background_blue">#A6CBEB</color>
-    <color name="seek_bar">#947701</color>
+    <color name="mustard">#947701</color>
     <color name="worst_tip">#940000</color>
     <color name="best_tip">#01942B</color>
 </resources>

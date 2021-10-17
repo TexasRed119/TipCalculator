@@ -6,10 +6,13 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.view.View
 import android.widget.EditText
 import android.widget.SeekBar
+import android.widget.Switch
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import kotlin.math.roundToInt
 
 private const val TAG = "MainActivity"
 private const val INITIAL_TIP_PERCENT = 15
@@ -20,6 +23,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var tvTipAmount: TextView
     private lateinit var tvTotalAmount: TextView
     private lateinit var tvTipDescription: TextView
+    private lateinit var switchRoundTip: Switch
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +34,7 @@ class MainActivity : AppCompatActivity() {
         tvTipAmount = findViewById<TextView>(R.id.tvTipAmount)
         tvTotalAmount = findViewById<TextView>(R.id.tvTotalAmount)
         tvTipDescription = findViewById<TextView>(R.id.tvTipDescription)
+        switchRoundTip = findViewById<Switch>(R.id.switchRoundTip)
 
         seekBarTip.progress = INITIAL_TIP_PERCENT
         tvTipPercentLabel.text = "$INITIAL_TIP_PERCENT%"
@@ -58,6 +63,12 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
+
+        switchRoundTip.setOnClickListener(object: View.OnClickListener {
+            override fun onClick(p0: View?) {
+                computeTipAndTotal()
+            }
+        })
     }
 
     private fun computeTipAndTotal(){
@@ -69,9 +80,13 @@ class MainActivity : AppCompatActivity() {
         // 1. get the value of the base and tip percent
         val baseAmount = etBaseAmount.text.toString().toDouble()
         val tipPercent = seekBarTip.progress
-        // 2. compute the tip and total
-        val tipAmount = baseAmount * tipPercent / 100
-        val totalAmount = baseAmount + tipAmount
+        // 2. compute the tip and total for when switchRoundTip is on and switchRoundTip is off
+        var tipAmount = baseAmount * tipPercent / 100
+        var totalAmount = baseAmount + tipAmount
+        if (switchRoundTip.isChecked){
+            tipAmount = tipAmount.roundToInt().toDouble()
+            totalAmount = baseAmount + tipAmount
+        }
         // 3. Update the UI
         tvTipAmount.text = "%.2f".format(tipAmount)
         tvTotalAmount.text = "%.2f".format(totalAmount)
@@ -92,5 +107,6 @@ class MainActivity : AppCompatActivity() {
             ContextCompat.getColor(this, R.color.best_tip)
             ) as Int
         tvTipDescription.setTextColor(color)
+        seekBarTip.setBackgroundColor(color)
     }
 }
