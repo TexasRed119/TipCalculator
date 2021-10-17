@@ -17,7 +17,8 @@ The following **required** functionality is completed:
 The following **extensions** are implemented:
 
 * [x] Custom colors palette selected
-* [ ] List anything else that you did to improve the app functionality or design!
+* [x] Seek bar uses color update based on tip amount
+* [x] User can use switch to round the tip up
 
 ## Video Walkthrough
 
@@ -29,7 +30,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+No major snags when it came to building the app. The hardest part was integrating GitHub.
 
 ## License
 
